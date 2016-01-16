@@ -2,12 +2,14 @@
 title: "Statistical interference project2"
 author: "MS"
 date: "January 14, 2016"
-output: html_document
+output: pdf_document
 ---
 
 #ToothGrowth analysis
 
 ##Overview
+
+This document performs a simple statistic analysis of the "toothgrowth" data package. The Data is first analysed by comparing two observables at a time and combined to an analysis of all three observables.
 
 ##Data description
 Taken from R Help

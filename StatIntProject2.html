@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="MS" />
 
@@ -72,6 +73,7 @@ img {
 <h1>ToothGrowth analysis</h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
+<p>This document performs a simple statistic analysis of the “toothgrowth” data package. The Data is first analysed by comparing two observables at a time and combined to an analysis of all three observables.</p>
 </div>
 <div id="data-description" class="section level2">
 <h2>Data description</h2>
@@ -145,11 +147,11 @@ for (i in 1:2) {
 }
 rownames(tResults) &lt;- c(&quot;0.5 &amp; 1.0|&quot;,&quot;0.5 &amp; 2.0|&quot;,&quot;1.0 &amp; 2.0|&quot;)
 colnames(tResults)&lt;-c(&quot;p.value&quot;,&quot;conf.low&quot;,&quot;conf.high&quot;)
-tResults</code></pre>
-<pre><code>##                 p.value   conf.low  conf.high
-## 0.5 &amp; 1.0| 1.268301e-07 -11.983781  -6.276219
-## 0.5 &amp; 2.0| 4.397525e-14 -18.156167 -12.833833
-## 1.0 &amp; 2.0| 1.906430e-05  -8.996481  -3.733519</code></pre>
+round(tResults,3)</code></pre>
+<pre><code>##            p.value conf.low conf.high
+## 0.5 &amp; 1.0|       0  -11.984    -6.276
+## 0.5 &amp; 2.0|       0  -18.156   -12.834
+## 1.0 &amp; 2.0|       0   -8.996    -3.734</code></pre>
 <p>All p values are &lt;0.05 and we reject the null hypothesis for all comparisons. Thus we conclude, that the mean tooth length increases when the dosage is increased from 0 to 0.5 mg/day and increased from 0.5 to 2.0 mg/day.</p>
 <p>Does this conclusion still valid when we adjust for multitesting using the Bonferroni method?</p>
 <pre class="r"><code>p.adjust(tResults$p.value, method = &quot;BH&quot;)</code></pre>

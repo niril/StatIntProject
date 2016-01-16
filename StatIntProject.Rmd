@@ -88,7 +88,7 @@ meanSWPValue<-shapiro.test(simMean)$p.value
 varSWPValue<-shapiro.test(simVar)$p.value
 ```
 
-The p value is `r meanSWPValue` and `r varSWPValue` for the mean and variance distributions respectively. Hence, it is <0.01 and we reject the null hypothesis. Thus according the Shapiro-Wilks test the distributions are NOT normal. However, the test might not be appropriate, as it is skewed toward rejecting the null-hypothesis at large n. 
+The p value is $`r meanSWPValue`$ and $`r varSWPValue`$ for the mean and variance distributions respectively. Hence, it is <0.01 and we reject the null hypothesis. Thus according the Shapiro-Wilks test the distributions are NOT normal. However, the test might not be appropriate, as it is skewed toward rejecting the null-hypothesis at large n. 
 To better validate the distributions we look at the QQ-plots:
 
 ```{r}
@@ -110,6 +110,6 @@ qqnorm(log(simMean), main ="LogNormal Q-Q Plot: Mean");qqline(log(simMean), col 
 qqnorm(log(simVar), main ="LogNormal Q-Q Plot: Variance");qqline(log(simVar), col = 2, lwd = 3)
 
 ```
-The p value are `r logmeanSWPValue` and `r logvarSWPValue` for the mean and variance distributions respectively. Now both p values are >0.01. Thus, we fail to reject the null hypothesis and instead accept it: "The mean and variance distributions are Log-Normal distributed". This is also emphasized by the QQ-plots. For the mean, the deviation is only slightly closer to the straight line, however, for the variance, the points now lie close to the straight line. 
+The p value are $`r logmeanSWPValue`$ and $`r logvarSWPValue`$ for the mean and variance distributions respectively. Now both p values are >0.01. Thus, we fail to reject the null hypothesis and instead accept it: "The mean and variance distributions are Log-Normal distributed". This is also emphasized by the QQ-plots. For the mean, the deviation is only slightly closer to the straight line, however, for the variance, the points now lie close to the straight line. 
 
 The log-normal distribution often emerge when we have a finit limit on the values our data can take (e.g. can't be negative, as in this example). As we move away from the limit, the distribution becomes more like a normal distribution. Hence, it makes sense that our distributions are log-normal.
